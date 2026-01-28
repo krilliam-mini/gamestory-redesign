@@ -4,11 +4,20 @@ const currentYear = new Date().getFullYear();
 
 <footer class="footer">
 	<div class="footer-container">
+		<!-- Decorative top element -->
+		<div class="footer-decoration">
+			<div class="decoration-line"></div>
+			<div class="decoration-mark">
+				<span>GS</span>
+			</div>
+			<div class="decoration-line"></div>
+		</div>
+
 		<div class="footer-top">
 			<!-- Brand -->
 			<div class="footer-brand">
 				<a href="/" class="footer-logo">
-					<span class="logo-icon">◆</span>
+					<span class="logo-mark"></span>
 					<span class="logo-text">GameStory</span>
 				</a>
 				<p class="footer-tagline">
@@ -36,7 +45,7 @@ const currentYear = new Date().getFullYear();
 
 		<div class="footer-bottom">
 			<p class="copyright">
-				© {currentYear} GameStory. All rights reserved.
+				&copy; {currentYear} GameStory. All rights reserved.
 			</p>
 
 			<div class="footer-accent">
@@ -46,33 +55,13 @@ const currentYear = new Date().getFullYear();
 			</div>
 		</div>
 	</div>
-
-	<!-- Decorative top border -->
-	<div class="footer-border"></div>
 </footer>
 
 <style>
 	.footer {
 		position: relative;
-		background: var(--color-abyss);
-		padding: 4rem 2rem 2rem;
-	}
-
-	.footer-border {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		height: 1px;
-		background: linear-gradient(
-			90deg,
-			transparent,
-			var(--color-neon-cyan) 20%,
-			var(--color-neon-magenta) 50%,
-			var(--color-neon-cyan) 80%,
-			transparent
-		);
-		opacity: 0.5;
+		background: var(--color-warm-white);
+		padding: 0 2rem 2rem;
 	}
 
 	.footer-container {
@@ -80,12 +69,46 @@ const currentYear = new Date().getFullYear();
 		margin: 0 auto;
 	}
 
+	/* Decorative top element */
+	.footer-decoration {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 2rem;
+		padding: 3rem 0;
+	}
+
+	.decoration-line {
+		flex: 1;
+		height: 1px;
+		background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+		max-width: 200px;
+	}
+
+	.decoration-mark {
+		width: 48px;
+		height: 48px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--color-paper);
+		border: 1px solid var(--color-border);
+		border-radius: 12px;
+	}
+
+	.decoration-mark span {
+		font-family: var(--font-display);
+		font-size: 1rem;
+		font-weight: 700;
+		color: var(--color-terracotta);
+	}
+
 	.footer-top {
 		display: flex;
 		justify-content: space-between;
 		gap: 4rem;
 		padding-bottom: 3rem;
-		border-bottom: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border-light);
 		margin-bottom: 2rem;
 	}
 
@@ -103,16 +126,26 @@ const currentYear = new Date().getFullYear();
 		margin-bottom: 1rem;
 	}
 
-	.logo-icon {
-		font-size: 1.5rem;
-		color: var(--color-neon-cyan);
-		text-shadow: var(--glow-cyan);
+	.logo-mark {
+		width: 24px;
+		height: 24px;
+		background: linear-gradient(135deg, var(--color-terracotta) 0%, var(--color-ochre) 100%);
+		border-radius: 6px;
+		position: relative;
+	}
+
+	.logo-mark::after {
+		content: '';
+		position: absolute;
+		inset: 3px;
+		border: 1.5px solid var(--color-warm-white);
+		border-radius: 3px;
 	}
 
 	.logo-text {
 		font-family: var(--font-display);
-		font-weight: 700;
-		font-size: 1.5rem;
+		font-weight: 600;
+		font-size: 1.35rem;
 		letter-spacing: -0.02em;
 	}
 
@@ -136,10 +169,10 @@ const currentYear = new Date().getFullYear();
 
 	.link-title {
 		font-family: var(--font-display);
-		font-size: 0.85rem;
+		font-size: 0.8rem;
 		font-weight: 600;
 		text-transform: uppercase;
-		letter-spacing: 0.1em;
+		letter-spacing: 0.12em;
 		color: var(--color-text-primary);
 		margin-bottom: 0.5rem;
 	}
@@ -152,7 +185,7 @@ const currentYear = new Date().getFullYear();
 	}
 
 	.link:hover {
-		color: var(--color-neon-cyan);
+		color: var(--color-terracotta);
 	}
 
 	/* Bottom */
@@ -182,16 +215,23 @@ const currentYear = new Date().getFullYear();
 	}
 
 	.accent-dot {
-		width: 4px;
-		height: 4px;
-		background: var(--color-neon-lime);
+		width: 5px;
+		height: 5px;
+		background: var(--color-forest);
 		border-radius: 50%;
-		box-shadow: 0 0 8px var(--color-neon-lime);
 	}
 
 	@media (max-width: 768px) {
 		.footer {
-			padding: 3rem 1.5rem 1.5rem;
+			padding: 0 1.5rem 1.5rem;
+		}
+
+		.footer-decoration {
+			padding: 2rem 0;
+		}
+
+		.decoration-line {
+			max-width: 60px;
 		}
 
 		.footer-top {

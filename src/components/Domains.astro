@@ -4,21 +4,21 @@ const domains = [
 		icon: "🎮",
 		title: "Gaming",
 		description: "Intelligent NPCs, procedural content generation, and adaptive gameplay experiences powered by cutting-edge AI.",
-		color: "cyan",
+		color: "terracotta",
 		features: ["Dynamic Storytelling", "AI NPCs", "Procedural Worlds"]
 	},
 	{
 		icon: "📦",
 		title: "Logistics",
 		description: "Optimize supply chains, predict demand, and automate operations with machine learning solutions.",
-		color: "magenta",
+		color: "forest",
 		features: ["Route Optimization", "Demand Forecasting", "Warehouse AI"]
 	},
 	{
 		icon: "💰",
 		title: "Finance",
 		description: "Risk assessment, fraud detection, and algorithmic trading powered by advanced AI models.",
-		color: "lime",
+		color: "navy",
 		features: ["Risk Analysis", "Fraud Detection", "Trading Algorithms"]
 	}
 ];
@@ -42,7 +42,7 @@ const domains = [
 		<div class="domains-grid">
 			{domains.map((domain, index) => (
 				<article class={`domain-card domain-card-${domain.color}`} style={`--delay: ${index * 0.1}s`}>
-					<div class="card-glow"></div>
+					<div class="card-accent"></div>
 
 					<div class="card-header">
 						<span class="domain-icon">{domain.icon}</span>
@@ -60,21 +60,22 @@ const domains = [
 					<div class="card-footer">
 						<span class="learn-more">
 							Learn more
-							<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-								<path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+								<path d="M3 8H13M13 8L8 3M13 8L8 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 							</svg>
 						</span>
 					</div>
-
-					<!-- Corner accent -->
-					<div class="corner-accent"></div>
 				</article>
 			))}
 		</div>
 
 		<!-- Expansion note -->
 		<div class="expansion-note">
-			<div class="note-icon">+</div>
+			<div class="note-decoration">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+					<path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+				</svg>
+			</div>
 			<p>We continuously expand into new domains as opportunities arise. <strong>Your industry could be next.</strong></p>
 		</div>
 	</div>
@@ -84,7 +85,7 @@ const domains = [
 	.domains {
 		position: relative;
 		padding: 8rem 2rem;
-		background: var(--color-abyss);
+		background: var(--color-paper);
 	}
 
 	.domains::before {
@@ -93,9 +94,8 @@ const domains = [
 		top: 0;
 		left: 0;
 		right: 0;
-		height: 200px;
-		background: linear-gradient(to bottom, var(--color-void), transparent);
-		pointer-events: none;
+		height: 1px;
+		background: linear-gradient(90deg, transparent, var(--color-border), transparent);
 	}
 
 	.domains-container {
@@ -111,46 +111,46 @@ const domains = [
 
 	.section-tag {
 		display: inline-block;
-		padding: 0.5rem 1rem;
-		background: rgba(0, 255, 240, 0.1);
-		border: 1px solid rgba(0, 255, 240, 0.2);
+		padding: 0.5rem 1.25rem;
+		background: var(--color-warm-white);
+		border: 1px solid var(--color-border);
 		border-radius: 100px;
-		font-size: 0.85rem;
+		font-size: 0.8rem;
 		font-weight: 600;
-		color: var(--color-neon-cyan);
+		color: var(--color-terracotta);
 		text-transform: uppercase;
-		letter-spacing: 0.1em;
+		letter-spacing: 0.12em;
 		margin-bottom: 1.5rem;
 	}
 
 	.section-title {
 		font-family: var(--font-display);
-		font-size: clamp(2.5rem, 6vw, 4rem);
-		font-weight: 700;
-		line-height: 1.1;
+		font-size: clamp(2.25rem, 5vw, 3.5rem);
+		font-weight: 500;
+		line-height: 1.15;
 		letter-spacing: -0.02em;
 		margin-bottom: 1.5rem;
+		color: var(--color-text-primary);
 	}
 
 	.title-accent {
 		display: block;
-		background: linear-gradient(135deg, var(--color-neon-cyan), var(--color-neon-magenta));
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
+		color: var(--color-forest);
+		font-style: italic;
 	}
 
 	.section-description {
-		font-size: 1.2rem;
+		font-size: 1.15rem;
 		color: var(--color-text-secondary);
-		max-width: 600px;
+		max-width: 550px;
 		margin: 0 auto;
+		line-height: 1.7;
 	}
 
 	/* Domain cards grid */
 	.domains-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
 		gap: 2rem;
 		margin-bottom: 4rem;
 	}
@@ -158,92 +158,43 @@ const domains = [
 	.domain-card {
 		position: relative;
 		padding: 2.5rem;
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
+		background: var(--color-warm-white);
+		border: 1px solid var(--color-border-light);
 		border-radius: 24px;
 		overflow: hidden;
 		transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-		animation: card-appear 0.6s ease-out calc(var(--delay)) backwards;
-	}
-
-	@keyframes card-appear {
-		from {
-			opacity: 0;
-			transform: translateY(40px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
+		box-shadow: var(--shadow-sm);
 	}
 
 	.domain-card:hover {
-		transform: translateY(-8px);
-		border-color: transparent;
+		transform: translateY(-6px);
+		box-shadow: var(--shadow-lg);
 	}
 
-	/* Card glow effect on hover */
-	.card-glow {
-		position: absolute;
-		inset: 0;
-		opacity: 0;
-		transition: opacity 0.4s ease;
-		pointer-events: none;
-	}
-
-	.domain-card:hover .card-glow {
-		opacity: 1;
-	}
-
-	.domain-card-cyan .card-glow {
-		background: radial-gradient(circle at 50% 0%, rgba(0, 255, 240, 0.15), transparent 70%);
-	}
-
-	.domain-card-cyan:hover {
-		box-shadow: 0 20px 60px rgba(0, 255, 240, 0.15), 0 0 1px rgba(0, 255, 240, 0.5);
-	}
-
-	.domain-card-magenta .card-glow {
-		background: radial-gradient(circle at 50% 0%, rgba(255, 0, 170, 0.15), transparent 70%);
-	}
-
-	.domain-card-magenta:hover {
-		box-shadow: 0 20px 60px rgba(255, 0, 170, 0.15), 0 0 1px rgba(255, 0, 170, 0.5);
-	}
-
-	.domain-card-lime .card-glow {
-		background: radial-gradient(circle at 50% 0%, rgba(200, 255, 0, 0.15), transparent 70%);
-	}
-
-	.domain-card-lime:hover {
-		box-shadow: 0 20px 60px rgba(200, 255, 0, 0.15), 0 0 1px rgba(200, 255, 0, 0.5);
-	}
-
-	/* Corner accent */
-	.corner-accent {
+	/* Card accent bar */
+	.card-accent {
 		position: absolute;
 		top: 0;
+		left: 0;
 		right: 0;
-		width: 100px;
-		height: 100px;
-		opacity: 0.1;
-		transition: opacity 0.3s ease;
+		height: 4px;
+		transition: height 0.3s ease;
 	}
 
-	.domain-card:hover .corner-accent {
-		opacity: 0.2;
+	.domain-card:hover .card-accent {
+		height: 6px;
 	}
 
-	.domain-card-cyan .corner-accent {
-		background: radial-gradient(circle at top right, var(--color-neon-cyan), transparent 70%);
+	.domain-card-terracotta .card-accent {
+		background: linear-gradient(90deg, var(--color-terracotta), var(--color-ochre));
 	}
 
-	.domain-card-magenta .corner-accent {
-		background: radial-gradient(circle at top right, var(--color-neon-magenta), transparent 70%);
+	.domain-card-forest .card-accent {
+		background: linear-gradient(90deg, var(--color-forest), var(--color-forest-light));
 	}
 
-	.domain-card-lime .corner-accent {
-		background: radial-gradient(circle at top right, var(--color-neon-lime), transparent 70%);
+	.domain-card-navy .card-accent {
+		background: linear-gradient(90deg, var(--color-navy), #2d5a8a);
 	}
 
 	/* Card content */
@@ -262,20 +213,20 @@ const domains = [
 	.domain-title {
 		font-family: var(--font-display);
 		font-size: 1.75rem;
-		font-weight: 700;
+		font-weight: 600;
 		color: var(--color-text-primary);
 	}
 
-	.domain-card-cyan .domain-title {
-		color: var(--color-neon-cyan);
+	.domain-card-terracotta:hover .domain-title {
+		color: var(--color-terracotta);
 	}
 
-	.domain-card-magenta .domain-title {
-		color: var(--color-neon-magenta);
+	.domain-card-forest:hover .domain-title {
+		color: var(--color-forest);
 	}
 
-	.domain-card-lime .domain-title {
-		color: var(--color-neon-lime);
+	.domain-card-navy:hover .domain-title {
+		color: var(--color-navy);
 	}
 
 	.domain-description {
@@ -294,8 +245,8 @@ const domains = [
 	}
 
 	.feature-tag {
-		padding: 0.35rem 0.85rem;
-		background: var(--color-elevated);
+		padding: 0.4rem 0.9rem;
+		background: var(--color-paper);
 		border-radius: 100px;
 		font-size: 0.8rem;
 		font-weight: 500;
@@ -303,19 +254,19 @@ const domains = [
 		transition: all 0.3s ease;
 	}
 
-	.domain-card-cyan:hover .feature-tag {
-		background: rgba(0, 255, 240, 0.1);
-		color: var(--color-neon-cyan);
+	.domain-card-terracotta:hover .feature-tag {
+		background: rgba(198, 93, 59, 0.1);
+		color: var(--color-terracotta);
 	}
 
-	.domain-card-magenta:hover .feature-tag {
-		background: rgba(255, 0, 170, 0.1);
-		color: var(--color-neon-magenta);
+	.domain-card-forest:hover .feature-tag {
+		background: rgba(45, 90, 74, 0.1);
+		color: var(--color-forest);
 	}
 
-	.domain-card-lime:hover .feature-tag {
-		background: rgba(200, 255, 0, 0.1);
-		color: var(--color-neon-lime);
+	.domain-card-navy:hover .feature-tag {
+		background: rgba(30, 58, 95, 0.1);
+		color: var(--color-navy);
 	}
 
 	/* Card footer */
@@ -347,16 +298,16 @@ const domains = [
 		transform: translateX(4px);
 	}
 
-	.domain-card-cyan:hover .learn-more {
-		color: var(--color-neon-cyan);
+	.domain-card-terracotta:hover .learn-more {
+		color: var(--color-terracotta);
 	}
 
-	.domain-card-magenta:hover .learn-more {
-		color: var(--color-neon-magenta);
+	.domain-card-forest:hover .learn-more {
+		color: var(--color-forest);
 	}
 
-	.domain-card-lime:hover .learn-more {
-		color: var(--color-neon-lime);
+	.domain-card-navy:hover .learn-more {
+		color: var(--color-navy);
 	}
 
 	/* Expansion note */
@@ -364,31 +315,30 @@ const domains = [
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 1rem;
-		padding: 1.5rem 2rem;
-		background: var(--color-surface);
-		border: 1px dashed var(--color-border);
+		gap: 1.25rem;
+		padding: 1.75rem 2.5rem;
+		background: var(--color-warm-white);
+		border: 2px dashed var(--color-border);
 		border-radius: 16px;
 		text-align: center;
 	}
 
-	.note-icon {
-		width: 40px;
-		height: 40px;
+	.note-decoration {
+		width: 44px;
+		height: 44px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background: var(--color-elevated);
-		border: 1px solid var(--color-border);
+		background: var(--color-paper);
 		border-radius: 50%;
-		font-size: 1.25rem;
-		font-weight: 700;
-		color: var(--color-neon-cyan);
+		color: var(--color-terracotta);
+		flex-shrink: 0;
 	}
 
 	.expansion-note p {
 		color: var(--color-text-secondary);
 		font-size: 1rem;
+		line-height: 1.6;
 	}
 
 	.expansion-note strong {
@@ -410,7 +360,7 @@ const domains = [
 
 		.expansion-note {
 			flex-direction: column;
-			text-align: center;
+			padding: 1.5rem;
 		}
 	}
 </style>

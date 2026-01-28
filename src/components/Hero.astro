@@ -2,25 +2,39 @@
 ---
 
 <section class="hero">
-	<!-- Animated background grid -->
-	<div class="hero-grid"></div>
+	<!-- Organic background shapes -->
+	<div class="hero-shapes">
+		<div class="shape shape-1"></div>
+		<div class="shape shape-2"></div>
+		<div class="shape shape-3"></div>
+	</div>
 
-	<!-- Floating orbs -->
-	<div class="orb orb-1"></div>
-	<div class="orb orb-2"></div>
-	<div class="orb orb-3"></div>
-
-	<!-- Scanlines overlay -->
-	<div class="scanlines"></div>
+	<!-- Decorative botanical elements -->
+	<div class="botanical botanical-left">
+		<svg viewBox="0 0 100 200" fill="none">
+			<path d="M50 200 Q30 150 50 100 Q70 50 50 0" stroke="currentColor" stroke-width="1" fill="none" opacity="0.3"/>
+			<circle cx="50" cy="80" r="15" fill="currentColor" opacity="0.1"/>
+			<circle cx="35" cy="120" r="10" fill="currentColor" opacity="0.08"/>
+			<circle cx="65" cy="140" r="12" fill="currentColor" opacity="0.06"/>
+		</svg>
+	</div>
+	<div class="botanical botanical-right">
+		<svg viewBox="0 0 100 200" fill="none">
+			<path d="M50 0 Q70 50 50 100 Q30 150 50 200" stroke="currentColor" stroke-width="1" fill="none" opacity="0.3"/>
+			<circle cx="50" cy="60" r="18" fill="currentColor" opacity="0.1"/>
+			<circle cx="65" cy="100" r="12" fill="currentColor" opacity="0.08"/>
+		</svg>
+	</div>
 
 	<div class="hero-content">
 		<!-- Eyebrow -->
 		<div class="eyebrow">
-			<span class="eyebrow-dot"></span>
-			<span>AI-Powered Innovation</span>
+			<span class="eyebrow-line"></span>
+			<span class="eyebrow-text">AI-Powered Innovation</span>
+			<span class="eyebrow-line"></span>
 		</div>
 
-		<!-- Main headline with glitch effect -->
+		<!-- Main headline -->
 		<h1 class="hero-title">
 			<span class="title-line title-line-1">Shaping the</span>
 			<span class="title-line title-line-2">
@@ -45,13 +59,12 @@
 		<div class="hero-actions">
 			<a href="/contact" class="cta-primary">
 				<span>Let's Talk</span>
-				<div class="cta-glow"></div>
+				<svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+					<path d="M3 9H15M15 9L9 3M15 9L9 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
 			</a>
 			<a href="#domains" class="cta-secondary">
 				<span>Explore Domains</span>
-				<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-					<path d="M8 2V14M8 14L14 8M8 14L2 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-				</svg>
 			</a>
 		</div>
 
@@ -68,7 +81,7 @@
 			</div>
 			<div class="stat-divider"></div>
 			<div class="stat">
-				<span class="stat-value">∞</span>
+				<span class="stat-value">&infin;</span>
 				<span class="stat-label">Possibilities</span>
 			</div>
 		</div>
@@ -76,6 +89,7 @@
 
 	<!-- Scroll indicator -->
 	<div class="scroll-indicator">
+		<span class="scroll-text">Scroll</span>
 		<div class="scroll-line"></div>
 	</div>
 </section>
@@ -89,140 +103,136 @@
 		justify-content: center;
 		padding: 8rem 2rem 4rem;
 		overflow: hidden;
+		background: linear-gradient(180deg, var(--color-warm-white) 0%, var(--color-cream) 100%);
 	}
 
-	/* Animated grid background */
-	.hero-grid {
+	/* Organic background shapes */
+	.hero-shapes {
 		position: absolute;
 		inset: 0;
-		background-image:
-			linear-gradient(rgba(0, 255, 240, 0.03) 1px, transparent 1px),
-			linear-gradient(90deg, rgba(0, 255, 240, 0.03) 1px, transparent 1px);
-		background-size: 60px 60px;
-		mask-image: radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%);
-		animation: grid-pulse 8s ease-in-out infinite;
+		overflow: hidden;
+		pointer-events: none;
 	}
 
-	@keyframes grid-pulse {
-		0%, 100% {
-			opacity: 0.5;
-		}
-		50% {
-			opacity: 1;
-		}
-	}
-
-	/* Floating orbs */
-	.orb {
+	.shape {
 		position: absolute;
 		border-radius: 50%;
-		filter: blur(80px);
-		opacity: 0.4;
-		animation: float 20s ease-in-out infinite;
+		animation: float-gentle 20s ease-in-out infinite;
 	}
 
-	.orb-1 {
+	.shape-1 {
 		width: 600px;
 		height: 600px;
-		background: var(--color-neon-cyan);
+		background: radial-gradient(circle, rgba(198, 93, 59, 0.08) 0%, transparent 70%);
 		top: -200px;
 		right: -100px;
 		animation-delay: 0s;
 	}
 
-	.orb-2 {
-		width: 400px;
-		height: 400px;
-		background: var(--color-neon-magenta);
-		bottom: -100px;
+	.shape-2 {
+		width: 500px;
+		height: 500px;
+		background: radial-gradient(circle, rgba(45, 90, 74, 0.06) 0%, transparent 70%);
+		bottom: -150px;
 		left: -100px;
-		animation-delay: -5s;
+		animation-delay: -7s;
 	}
 
-	.orb-3 {
+	.shape-3 {
 		width: 300px;
 		height: 300px;
-		background: var(--color-neon-lime);
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		opacity: 0.15;
-		animation-delay: -10s;
+		background: radial-gradient(circle, rgba(184, 134, 11, 0.05) 0%, transparent 70%);
+		top: 40%;
+		left: 20%;
+		animation-delay: -14s;
 	}
 
-	@keyframes float {
+	@keyframes float-gentle {
 		0%, 100% {
 			transform: translate(0, 0) scale(1);
 		}
 		33% {
-			transform: translate(30px, -30px) scale(1.05);
+			transform: translate(20px, -20px) scale(1.02);
 		}
 		66% {
-			transform: translate(-20px, 20px) scale(0.95);
+			transform: translate(-15px, 15px) scale(0.98);
 		}
 	}
 
-	/* Scanlines */
-	.scanlines {
+	/* Botanical decorations */
+	.botanical {
 		position: absolute;
-		inset: 0;
-		background: repeating-linear-gradient(
-			0deg,
-			transparent,
-			transparent 2px,
-			rgba(0, 0, 0, 0.1) 2px,
-			rgba(0, 0, 0, 0.1) 4px
-		);
-		pointer-events: none;
-		opacity: 0.3;
+		width: 100px;
+		height: 200px;
+		color: var(--color-forest);
+		opacity: 0.4;
+		animation: sway 8s ease-in-out infinite;
+	}
+
+	.botanical-left {
+		left: 5%;
+		top: 20%;
+		animation-delay: 0s;
+	}
+
+	.botanical-right {
+		right: 5%;
+		bottom: 15%;
+		animation-delay: -4s;
+	}
+
+	@keyframes sway {
+		0%, 100% {
+			transform: rotate(-2deg);
+		}
+		50% {
+			transform: rotate(2deg);
+		}
 	}
 
 	/* Content */
 	.hero-content {
 		position: relative;
 		z-index: 10;
-		max-width: 900px;
+		max-width: 850px;
 		text-align: center;
 	}
 
 	/* Eyebrow */
 	.eyebrow {
-		display: inline-flex;
+		display: flex;
 		align-items: center;
-		gap: 0.75rem;
-		padding: 0.5rem 1.25rem;
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
-		border-radius: 100px;
-		font-size: 0.85rem;
-		font-weight: 500;
-		color: var(--color-text-secondary);
+		justify-content: center;
+		gap: 1rem;
 		margin-bottom: 2rem;
 		animation: fade-up 0.8s ease-out;
 	}
 
-	.eyebrow-dot {
-		width: 8px;
-		height: 8px;
-		background: var(--color-neon-lime);
-		border-radius: 50%;
-		animation: blink 2s ease-in-out infinite;
-		box-shadow: 0 0 10px var(--color-neon-lime);
+	.eyebrow-line {
+		width: 40px;
+		height: 1px;
+		background: var(--color-terracotta);
+		opacity: 0.5;
 	}
 
-	@keyframes blink {
-		0%, 100% { opacity: 1; }
-		50% { opacity: 0.3; }
+	.eyebrow-text {
+		font-family: var(--font-body);
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: var(--color-terracotta);
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
 	}
 
 	/* Title */
 	.hero-title {
 		font-family: var(--font-display);
-		font-size: clamp(3rem, 10vw, 6rem);
-		font-weight: 700;
-		line-height: 1.05;
-		letter-spacing: -0.03em;
+		font-size: clamp(3rem, 9vw, 5.5rem);
+		font-weight: 500;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
 		margin-bottom: 2rem;
+		color: var(--color-text-primary);
 	}
 
 	.title-line {
@@ -246,61 +256,65 @@
 	}
 
 	.highlight {
-		color: var(--color-neon-cyan);
-		text-shadow: var(--glow-cyan);
+		color: var(--color-terracotta);
+		font-style: italic;
 		position: relative;
 	}
 
+	.highlight::after {
+		content: '';
+		position: absolute;
+		bottom: 0.1em;
+		left: 0;
+		right: 0;
+		height: 0.3em;
+		background: rgba(198, 93, 59, 0.15);
+		z-index: -1;
+		border-radius: 2px;
+	}
+
 	.highlight-alt {
-		color: var(--color-neon-magenta);
-		text-shadow: var(--glow-magenta);
+		color: var(--color-forest);
+		font-weight: 600;
 		position: relative;
 		display: inline-block;
 	}
 
-	.highlight-alt::after {
-		content: 'AI';
+	.highlight-alt::before {
+		content: '';
 		position: absolute;
-		left: 2px;
-		top: 2px;
-		color: var(--color-neon-cyan);
-		opacity: 0.5;
+		inset: -4px -8px;
+		background: rgba(45, 90, 74, 0.08);
+		border-radius: 8px;
 		z-index: -1;
-		animation: glitch 3s ease-in-out infinite;
-	}
-
-	@keyframes glitch {
-		0%, 90%, 100% {
-			transform: translate(0);
-			opacity: 0;
-		}
-		92% {
-			transform: translate(-3px, 2px);
-			opacity: 0.8;
-		}
-		94% {
-			transform: translate(3px, -2px);
-			opacity: 0.6;
-		}
-		96% {
-			transform: translate(-2px, 1px);
-			opacity: 0.4;
-		}
 	}
 
 	/* Description */
 	.hero-description {
 		font-size: 1.2rem;
 		color: var(--color-text-secondary);
-		max-width: 700px;
-		margin: 0 auto 3rem;
-		line-height: 1.7;
+		max-width: 650px;
+		margin: 0 auto 2.5rem;
+		line-height: 1.8;
 		animation: fade-up 0.8s ease-out 0.4s backwards;
 	}
 
 	.domain-tag {
-		color: var(--color-neon-lime);
+		color: var(--color-forest);
 		font-weight: 600;
+		position: relative;
+	}
+
+	.domain-tag::after {
+		content: '';
+		position: absolute;
+		bottom: -2px;
+		left: 0;
+		right: 0;
+		height: 2px;
+		background: var(--color-forest);
+		opacity: 0.3;
+		border-radius: 1px;
 	}
 
 	/* Actions */
@@ -314,73 +328,54 @@
 	}
 
 	.cta-primary {
-		position: relative;
 		display: inline-flex;
 		align-items: center;
-		justify-content: center;
-		padding: 1rem 2.5rem;
-		background: var(--color-neon-cyan);
-		color: var(--color-void);
-		font-family: var(--font-display);
+		gap: 0.75rem;
+		padding: 1.1rem 2.25rem;
+		background: var(--color-terracotta);
+		color: var(--color-warm-white);
+		font-family: var(--font-body);
 		font-weight: 600;
-		font-size: 1.1rem;
+		font-size: 1.05rem;
 		text-decoration: none;
 		border-radius: 100px;
-		overflow: hidden;
 		transition: all 0.3s ease;
-		box-shadow: var(--glow-cyan);
+		box-shadow: 0 4px 20px rgba(198, 93, 59, 0.25);
 	}
 
 	.cta-primary:hover {
+		background: var(--color-terracotta-dark);
 		transform: translateY(-3px);
-		box-shadow: 0 0 50px rgba(0, 255, 240, 0.6), 0 0 100px rgba(0, 255, 240, 0.3);
+		box-shadow: 0 8px 30px rgba(198, 93, 59, 0.35);
 	}
 
-	.cta-glow {
-		position: absolute;
-		inset: 0;
-		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-		transform: translateX(-100%);
+	.cta-primary svg {
+		transition: transform 0.3s ease;
 	}
 
-	.cta-primary:hover .cta-glow {
-		animation: shine 0.6s ease;
-	}
-
-	@keyframes shine {
-		to {
-			transform: translateX(100%);
-		}
+	.cta-primary:hover svg {
+		transform: translateX(4px);
 	}
 
 	.cta-secondary {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.5rem;
-		padding: 1rem 2rem;
+		padding: 1.1rem 2rem;
 		background: transparent;
 		color: var(--color-text-primary);
-		font-family: var(--font-display);
-		font-weight: 500;
-		font-size: 1.1rem;
+		font-family: var(--font-body);
+		font-weight: 600;
+		font-size: 1.05rem;
 		text-decoration: none;
-		border: 1px solid var(--color-border);
+		border: 2px solid var(--color-border);
 		border-radius: 100px;
 		transition: all 0.3s ease;
 	}
 
 	.cta-secondary:hover {
-		border-color: var(--color-neon-cyan);
-		background: rgba(0, 255, 240, 0.05);
-	}
-
-	.cta-secondary svg {
-		animation: bounce-down 2s ease-in-out infinite;
-	}
-
-	@keyframes bounce-down {
-		0%, 100% { transform: translateY(0); }
-		50% { transform: translateY(4px); }
+		border-color: var(--color-forest);
+		background: rgba(45, 90, 74, 0.05);
+		color: var(--color-forest);
 	}
 
 	/* Stats */
@@ -388,7 +383,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 2rem;
+		gap: 2.5rem;
 		animation: fade-up 0.8s ease-out 0.6s backwards;
 	}
 
@@ -401,8 +396,8 @@
 
 	.stat-value {
 		font-family: var(--font-display);
-		font-size: 1.75rem;
-		font-weight: 700;
+		font-size: 2rem;
+		font-weight: 600;
 		color: var(--color-text-primary);
 	}
 
@@ -410,7 +405,7 @@
 		font-size: 0.85rem;
 		color: var(--color-text-muted);
 		text-transform: uppercase;
-		letter-spacing: 0.05em;
+		letter-spacing: 0.08em;
 	}
 
 	.stat-divider {
@@ -422,35 +417,39 @@
 	/* Scroll indicator */
 	.scroll-indicator {
 		position: absolute;
-		bottom: 2rem;
+		bottom: 2.5rem;
 		left: 50%;
 		transform: translateX(-50%);
-		width: 24px;
-		height: 40px;
-		border: 2px solid var(--color-border);
-		border-radius: 12px;
 		display: flex;
-		justify-content: center;
-		padding-top: 8px;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.75rem;
 		animation: fade-up 0.8s ease-out 0.7s backwards;
 	}
 
-	.scroll-line {
-		width: 2px;
-		height: 8px;
-		background: var(--color-neon-cyan);
-		border-radius: 1px;
-		animation: scroll-bounce 2s ease-in-out infinite;
+	.scroll-text {
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		color: var(--color-text-muted);
 	}
 
-	@keyframes scroll-bounce {
+	.scroll-line {
+		width: 1px;
+		height: 40px;
+		background: linear-gradient(to bottom, var(--color-terracotta), transparent);
+		animation: scroll-pulse 2s ease-in-out infinite;
+	}
+
+	@keyframes scroll-pulse {
 		0%, 100% {
-			transform: translateY(0);
 			opacity: 1;
+			transform: scaleY(1);
 		}
 		50% {
-			transform: translateY(8px);
-			opacity: 0.3;
+			opacity: 0.5;
+			transform: scaleY(0.7);
 		}
 	}
 
@@ -459,12 +458,16 @@
 			padding: 6rem 1.5rem 3rem;
 		}
 
+		.botanical {
+			display: none;
+		}
+
 		.hero-description {
-			font-size: 1rem;
+			font-size: 1.05rem;
 		}
 
 		.hero-stats {
-			gap: 1rem;
+			gap: 1.5rem;
 		}
 
 		.stat-value {
@@ -473,7 +476,7 @@
 
 		.cta-primary,
 		.cta-secondary {
-			padding: 0.875rem 1.75rem;
+			padding: 0.95rem 1.75rem;
 			font-size: 1rem;
 		}
 	}
