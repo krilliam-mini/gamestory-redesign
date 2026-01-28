@@ -1,0 +1,416 @@
+---
+const domains = [
+	{
+		icon: "🎮",
+		title: "Gaming",
+		description: "Intelligent NPCs, procedural content generation, and adaptive gameplay experiences powered by cutting-edge AI.",
+		color: "cyan",
+		features: ["Dynamic Storytelling", "AI NPCs", "Procedural Worlds"]
+	},
+	{
+		icon: "📦",
+		title: "Logistics",
+		description: "Optimize supply chains, predict demand, and automate operations with machine learning solutions.",
+		color: "magenta",
+		features: ["Route Optimization", "Demand Forecasting", "Warehouse AI"]
+	},
+	{
+		icon: "💰",
+		title: "Finance",
+		description: "Risk assessment, fraud detection, and algorithmic trading powered by advanced AI models.",
+		color: "lime",
+		features: ["Risk Analysis", "Fraud Detection", "Trading Algorithms"]
+	}
+];
+---
+
+<section id="domains" class="domains">
+	<div class="domains-container">
+		<!-- Section header -->
+		<div class="section-header">
+			<span class="section-tag">What We Do</span>
+			<h2 class="section-title">
+				AI Solutions Across
+				<span class="title-accent">Key Domains</span>
+			</h2>
+			<p class="section-description">
+				We build out products that target specific domains, expanding our expertise as we gain exposure to new industries.
+			</p>
+		</div>
+
+		<!-- Domain cards -->
+		<div class="domains-grid">
+			{domains.map((domain, index) => (
+				<article class={`domain-card domain-card-${domain.color}`} style={`--delay: ${index * 0.1}s`}>
+					<div class="card-glow"></div>
+
+					<div class="card-header">
+						<span class="domain-icon">{domain.icon}</span>
+						<h3 class="domain-title">{domain.title}</h3>
+					</div>
+
+					<p class="domain-description">{domain.description}</p>
+
+					<div class="domain-features">
+						{domain.features.map((feature) => (
+							<span class="feature-tag">{feature}</span>
+						))}
+					</div>
+
+					<div class="card-footer">
+						<span class="learn-more">
+							Learn more
+							<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+								<path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</span>
+					</div>
+
+					<!-- Corner accent -->
+					<div class="corner-accent"></div>
+				</article>
+			))}
+		</div>
+
+		<!-- Expansion note -->
+		<div class="expansion-note">
+			<div class="note-icon">+</div>
+			<p>We continuously expand into new domains as opportunities arise. <strong>Your industry could be next.</strong></p>
+		</div>
+	</div>
+</section>
+
+<style>
+	.domains {
+		position: relative;
+		padding: 8rem 2rem;
+		background: var(--color-abyss);
+	}
+
+	.domains::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 200px;
+		background: linear-gradient(to bottom, var(--color-void), transparent);
+		pointer-events: none;
+	}
+
+	.domains-container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	/* Section header */
+	.section-header {
+		text-align: center;
+		margin-bottom: 5rem;
+	}
+
+	.section-tag {
+		display: inline-block;
+		padding: 0.5rem 1rem;
+		background: rgba(0, 255, 240, 0.1);
+		border: 1px solid rgba(0, 255, 240, 0.2);
+		border-radius: 100px;
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: var(--color-neon-cyan);
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		margin-bottom: 1.5rem;
+	}
+
+	.section-title {
+		font-family: var(--font-display);
+		font-size: clamp(2.5rem, 6vw, 4rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		margin-bottom: 1.5rem;
+	}
+
+	.title-accent {
+		display: block;
+		background: linear-gradient(135deg, var(--color-neon-cyan), var(--color-neon-magenta));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.section-description {
+		font-size: 1.2rem;
+		color: var(--color-text-secondary);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	/* Domain cards grid */
+	.domains-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 2rem;
+		margin-bottom: 4rem;
+	}
+
+	.domain-card {
+		position: relative;
+		padding: 2.5rem;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: 24px;
+		overflow: hidden;
+		transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+		animation: card-appear 0.6s ease-out calc(var(--delay)) backwards;
+	}
+
+	@keyframes card-appear {
+		from {
+			opacity: 0;
+			transform: translateY(40px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.domain-card:hover {
+		transform: translateY(-8px);
+		border-color: transparent;
+	}
+
+	/* Card glow effect on hover */
+	.card-glow {
+		position: absolute;
+		inset: 0;
+		opacity: 0;
+		transition: opacity 0.4s ease;
+		pointer-events: none;
+	}
+
+	.domain-card:hover .card-glow {
+		opacity: 1;
+	}
+
+	.domain-card-cyan .card-glow {
+		background: radial-gradient(circle at 50% 0%, rgba(0, 255, 240, 0.15), transparent 70%);
+	}
+
+	.domain-card-cyan:hover {
+		box-shadow: 0 20px 60px rgba(0, 255, 240, 0.15), 0 0 1px rgba(0, 255, 240, 0.5);
+	}
+
+	.domain-card-magenta .card-glow {
+		background: radial-gradient(circle at 50% 0%, rgba(255, 0, 170, 0.15), transparent 70%);
+	}
+
+	.domain-card-magenta:hover {
+		box-shadow: 0 20px 60px rgba(255, 0, 170, 0.15), 0 0 1px rgba(255, 0, 170, 0.5);
+	}
+
+	.domain-card-lime .card-glow {
+		background: radial-gradient(circle at 50% 0%, rgba(200, 255, 0, 0.15), transparent 70%);
+	}
+
+	.domain-card-lime:hover {
+		box-shadow: 0 20px 60px rgba(200, 255, 0, 0.15), 0 0 1px rgba(200, 255, 0, 0.5);
+	}
+
+	/* Corner accent */
+	.corner-accent {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100px;
+		height: 100px;
+		opacity: 0.1;
+		transition: opacity 0.3s ease;
+	}
+
+	.domain-card:hover .corner-accent {
+		opacity: 0.2;
+	}
+
+	.domain-card-cyan .corner-accent {
+		background: radial-gradient(circle at top right, var(--color-neon-cyan), transparent 70%);
+	}
+
+	.domain-card-magenta .corner-accent {
+		background: radial-gradient(circle at top right, var(--color-neon-magenta), transparent 70%);
+	}
+
+	.domain-card-lime .corner-accent {
+		background: radial-gradient(circle at top right, var(--color-neon-lime), transparent 70%);
+	}
+
+	/* Card content */
+	.card-header {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.domain-icon {
+		font-size: 2.5rem;
+		line-height: 1;
+	}
+
+	.domain-title {
+		font-family: var(--font-display);
+		font-size: 1.75rem;
+		font-weight: 700;
+		color: var(--color-text-primary);
+	}
+
+	.domain-card-cyan .domain-title {
+		color: var(--color-neon-cyan);
+	}
+
+	.domain-card-magenta .domain-title {
+		color: var(--color-neon-magenta);
+	}
+
+	.domain-card-lime .domain-title {
+		color: var(--color-neon-lime);
+	}
+
+	.domain-description {
+		font-size: 1rem;
+		color: var(--color-text-secondary);
+		line-height: 1.7;
+		margin-bottom: 1.5rem;
+	}
+
+	/* Feature tags */
+	.domain-features {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 2rem;
+	}
+
+	.feature-tag {
+		padding: 0.35rem 0.85rem;
+		background: var(--color-elevated);
+		border-radius: 100px;
+		font-size: 0.8rem;
+		font-weight: 500;
+		color: var(--color-text-secondary);
+		transition: all 0.3s ease;
+	}
+
+	.domain-card-cyan:hover .feature-tag {
+		background: rgba(0, 255, 240, 0.1);
+		color: var(--color-neon-cyan);
+	}
+
+	.domain-card-magenta:hover .feature-tag {
+		background: rgba(255, 0, 170, 0.1);
+		color: var(--color-neon-magenta);
+	}
+
+	.domain-card-lime:hover .feature-tag {
+		background: rgba(200, 255, 0, 0.1);
+		color: var(--color-neon-lime);
+	}
+
+	/* Card footer */
+	.card-footer {
+		position: relative;
+		z-index: 1;
+	}
+
+	.learn-more {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-weight: 600;
+		font-size: 0.9rem;
+		color: var(--color-text-muted);
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.learn-more svg {
+		transition: transform 0.3s ease;
+	}
+
+	.domain-card:hover .learn-more {
+		color: var(--color-text-primary);
+	}
+
+	.domain-card:hover .learn-more svg {
+		transform: translateX(4px);
+	}
+
+	.domain-card-cyan:hover .learn-more {
+		color: var(--color-neon-cyan);
+	}
+
+	.domain-card-magenta:hover .learn-more {
+		color: var(--color-neon-magenta);
+	}
+
+	.domain-card-lime:hover .learn-more {
+		color: var(--color-neon-lime);
+	}
+
+	/* Expansion note */
+	.expansion-note {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+		padding: 1.5rem 2rem;
+		background: var(--color-surface);
+		border: 1px dashed var(--color-border);
+		border-radius: 16px;
+		text-align: center;
+	}
+
+	.note-icon {
+		width: 40px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--color-elevated);
+		border: 1px solid var(--color-border);
+		border-radius: 50%;
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: var(--color-neon-cyan);
+	}
+
+	.expansion-note p {
+		color: var(--color-text-secondary);
+		font-size: 1rem;
+	}
+
+	.expansion-note strong {
+		color: var(--color-text-primary);
+	}
+
+	@media (max-width: 768px) {
+		.domains {
+			padding: 5rem 1.5rem;
+		}
+
+		.domains-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.domain-card {
+			padding: 2rem;
+		}
+
+		.expansion-note {
+			flex-direction: column;
+			text-align: center;
+		}
+	}
+</style>

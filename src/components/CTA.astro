@@ -1,0 +1,266 @@
+---
+---
+
+<section class="cta-section">
+	<div class="cta-container">
+		<!-- Animated background -->
+		<div class="cta-bg">
+			<div class="cta-gradient"></div>
+			<div class="cta-grid"></div>
+			<div class="cta-glow cta-glow-1"></div>
+			<div class="cta-glow cta-glow-2"></div>
+		</div>
+
+		<div class="cta-content">
+			<h2 class="cta-title">
+				Ready to Shape the
+				<span class="title-gradient">Future</span>?
+			</h2>
+
+			<p class="cta-description">
+				Let's explore how AI can transform your industry.
+				Your vision, powered by our expertise.
+			</p>
+
+			<a href="/contact" class="cta-button">
+				<span class="button-text">Let's Talk</span>
+				<span class="button-icon">
+					<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+						<path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</span>
+				<span class="button-glow"></span>
+			</a>
+
+			<!-- Trust indicators -->
+			<div class="trust-row">
+				<span class="trust-item">
+					<span class="trust-icon">✦</span>
+					Custom Solutions
+				</span>
+				<span class="trust-divider">·</span>
+				<span class="trust-item">
+					<span class="trust-icon">✦</span>
+					Domain Expertise
+				</span>
+				<span class="trust-divider">·</span>
+				<span class="trust-item">
+					<span class="trust-icon">✦</span>
+					Scalable AI
+				</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.cta-section {
+		position: relative;
+		padding: 6rem 2rem;
+	}
+
+	.cta-container {
+		position: relative;
+		max-width: 900px;
+		margin: 0 auto;
+		border-radius: 32px;
+		overflow: hidden;
+	}
+
+	/* Background effects */
+	.cta-bg {
+		position: absolute;
+		inset: 0;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: 32px;
+	}
+
+	.cta-gradient {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(135deg, rgba(0, 255, 240, 0.05) 0%, rgba(255, 0, 170, 0.05) 100%);
+	}
+
+	.cta-grid {
+		position: absolute;
+		inset: 0;
+		background-image:
+			linear-gradient(rgba(0, 255, 240, 0.03) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(0, 255, 240, 0.03) 1px, transparent 1px);
+		background-size: 40px 40px;
+		opacity: 0.5;
+	}
+
+	.cta-glow {
+		position: absolute;
+		width: 300px;
+		height: 300px;
+		border-radius: 50%;
+		filter: blur(100px);
+		opacity: 0.3;
+		animation: glow-pulse 5s ease-in-out infinite;
+	}
+
+	.cta-glow-1 {
+		background: var(--color-neon-cyan);
+		top: -100px;
+		left: -100px;
+	}
+
+	.cta-glow-2 {
+		background: var(--color-neon-magenta);
+		bottom: -100px;
+		right: -100px;
+		animation-delay: -2.5s;
+	}
+
+	@keyframes glow-pulse {
+		0%, 100% {
+			transform: scale(1);
+			opacity: 0.3;
+		}
+		50% {
+			transform: scale(1.2);
+			opacity: 0.4;
+		}
+	}
+
+	/* Content */
+	.cta-content {
+		position: relative;
+		z-index: 10;
+		padding: 5rem 3rem;
+		text-align: center;
+	}
+
+	.cta-title {
+		font-family: var(--font-display);
+		font-size: clamp(2.5rem, 6vw, 3.5rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		margin-bottom: 1.5rem;
+	}
+
+	.title-gradient {
+		background: linear-gradient(135deg, var(--color-neon-cyan), var(--color-neon-magenta));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.cta-description {
+		font-size: 1.25rem;
+		color: var(--color-text-secondary);
+		max-width: 500px;
+		margin: 0 auto 2.5rem;
+		line-height: 1.6;
+	}
+
+	/* Button */
+	.cta-button {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 1.25rem 3rem;
+		background: linear-gradient(135deg, var(--color-neon-cyan), var(--color-neon-magenta));
+		color: var(--color-void);
+		font-family: var(--font-display);
+		font-weight: 700;
+		font-size: 1.2rem;
+		text-decoration: none;
+		border-radius: 100px;
+		overflow: hidden;
+		transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+		box-shadow:
+			0 0 30px rgba(0, 255, 240, 0.3),
+			0 0 60px rgba(255, 0, 170, 0.2);
+	}
+
+	.cta-button:hover {
+		transform: translateY(-4px) scale(1.02);
+		box-shadow:
+			0 0 50px rgba(0, 255, 240, 0.5),
+			0 0 100px rgba(255, 0, 170, 0.3);
+	}
+
+	.button-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: transform 0.3s ease;
+	}
+
+	.cta-button:hover .button-icon {
+		transform: translateX(4px);
+	}
+
+	.button-glow {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+		transform: translateX(-100%);
+	}
+
+	.cta-button:hover .button-glow {
+		animation: button-shine 0.6s ease;
+	}
+
+	@keyframes button-shine {
+		to {
+			transform: translateX(100%);
+		}
+	}
+
+	/* Trust indicators */
+	.trust-row {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+		margin-top: 3rem;
+		flex-wrap: wrap;
+	}
+
+	.trust-item {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.9rem;
+		color: var(--color-text-muted);
+	}
+
+	.trust-icon {
+		color: var(--color-neon-lime);
+	}
+
+	.trust-divider {
+		color: var(--color-border);
+	}
+
+	@media (max-width: 768px) {
+		.cta-section {
+			padding: 4rem 1.5rem;
+		}
+
+		.cta-content {
+			padding: 3rem 1.5rem;
+		}
+
+		.cta-button {
+			padding: 1rem 2rem;
+			font-size: 1.1rem;
+		}
+
+		.trust-row {
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+
+		.trust-divider {
+			display: none;
+		}
+	}
+</style>

@@ -1,0 +1,480 @@
+---
+---
+
+<section class="hero">
+	<!-- Animated background grid -->
+	<div class="hero-grid"></div>
+
+	<!-- Floating orbs -->
+	<div class="orb orb-1"></div>
+	<div class="orb orb-2"></div>
+	<div class="orb orb-3"></div>
+
+	<!-- Scanlines overlay -->
+	<div class="scanlines"></div>
+
+	<div class="hero-content">
+		<!-- Eyebrow -->
+		<div class="eyebrow">
+			<span class="eyebrow-dot"></span>
+			<span>AI-Powered Innovation</span>
+		</div>
+
+		<!-- Main headline with glitch effect -->
+		<h1 class="hero-title">
+			<span class="title-line title-line-1">Shaping the</span>
+			<span class="title-line title-line-2">
+				<span class="highlight">Future</span> of
+			</span>
+			<span class="title-line title-line-3">
+				Play with <span class="highlight-alt">AI</span>
+			</span>
+		</h1>
+
+		<!-- Description -->
+		<p class="hero-description">
+			GameStory builds intelligent, creative, and scalable AI solutions across
+			potentially any field. We target specific domains like
+			<span class="domain-tag">gaming</span>,
+			<span class="domain-tag">logistics</span>, and
+			<span class="domain-tag">finance</span> —
+			expanding as we gain exposure to new industries.
+		</p>
+
+		<!-- CTA buttons -->
+		<div class="hero-actions">
+			<a href="/contact" class="cta-primary">
+				<span>Let's Talk</span>
+				<div class="cta-glow"></div>
+			</a>
+			<a href="#domains" class="cta-secondary">
+				<span>Explore Domains</span>
+				<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+					<path d="M8 2V14M8 14L14 8M8 14L2 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+			</a>
+		</div>
+
+		<!-- Stats row -->
+		<div class="hero-stats">
+			<div class="stat">
+				<span class="stat-value">3+</span>
+				<span class="stat-label">Industries</span>
+			</div>
+			<div class="stat-divider"></div>
+			<div class="stat">
+				<span class="stat-value">AI</span>
+				<span class="stat-label">First Approach</span>
+			</div>
+			<div class="stat-divider"></div>
+			<div class="stat">
+				<span class="stat-value">∞</span>
+				<span class="stat-label">Possibilities</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Scroll indicator -->
+	<div class="scroll-indicator">
+		<div class="scroll-line"></div>
+	</div>
+</section>
+
+<style>
+	.hero {
+		position: relative;
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 8rem 2rem 4rem;
+		overflow: hidden;
+	}
+
+	/* Animated grid background */
+	.hero-grid {
+		position: absolute;
+		inset: 0;
+		background-image:
+			linear-gradient(rgba(0, 255, 240, 0.03) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(0, 255, 240, 0.03) 1px, transparent 1px);
+		background-size: 60px 60px;
+		mask-image: radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%);
+		animation: grid-pulse 8s ease-in-out infinite;
+	}
+
+	@keyframes grid-pulse {
+		0%, 100% {
+			opacity: 0.5;
+		}
+		50% {
+			opacity: 1;
+		}
+	}
+
+	/* Floating orbs */
+	.orb {
+		position: absolute;
+		border-radius: 50%;
+		filter: blur(80px);
+		opacity: 0.4;
+		animation: float 20s ease-in-out infinite;
+	}
+
+	.orb-1 {
+		width: 600px;
+		height: 600px;
+		background: var(--color-neon-cyan);
+		top: -200px;
+		right: -100px;
+		animation-delay: 0s;
+	}
+
+	.orb-2 {
+		width: 400px;
+		height: 400px;
+		background: var(--color-neon-magenta);
+		bottom: -100px;
+		left: -100px;
+		animation-delay: -5s;
+	}
+
+	.orb-3 {
+		width: 300px;
+		height: 300px;
+		background: var(--color-neon-lime);
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		opacity: 0.15;
+		animation-delay: -10s;
+	}
+
+	@keyframes float {
+		0%, 100% {
+			transform: translate(0, 0) scale(1);
+		}
+		33% {
+			transform: translate(30px, -30px) scale(1.05);
+		}
+		66% {
+			transform: translate(-20px, 20px) scale(0.95);
+		}
+	}
+
+	/* Scanlines */
+	.scanlines {
+		position: absolute;
+		inset: 0;
+		background: repeating-linear-gradient(
+			0deg,
+			transparent,
+			transparent 2px,
+			rgba(0, 0, 0, 0.1) 2px,
+			rgba(0, 0, 0, 0.1) 4px
+		);
+		pointer-events: none;
+		opacity: 0.3;
+	}
+
+	/* Content */
+	.hero-content {
+		position: relative;
+		z-index: 10;
+		max-width: 900px;
+		text-align: center;
+	}
+
+	/* Eyebrow */
+	.eyebrow {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.5rem 1.25rem;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: 100px;
+		font-size: 0.85rem;
+		font-weight: 500;
+		color: var(--color-text-secondary);
+		margin-bottom: 2rem;
+		animation: fade-up 0.8s ease-out;
+	}
+
+	.eyebrow-dot {
+		width: 8px;
+		height: 8px;
+		background: var(--color-neon-lime);
+		border-radius: 50%;
+		animation: blink 2s ease-in-out infinite;
+		box-shadow: 0 0 10px var(--color-neon-lime);
+	}
+
+	@keyframes blink {
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0.3; }
+	}
+
+	/* Title */
+	.hero-title {
+		font-family: var(--font-display);
+		font-size: clamp(3rem, 10vw, 6rem);
+		font-weight: 700;
+		line-height: 1.05;
+		letter-spacing: -0.03em;
+		margin-bottom: 2rem;
+	}
+
+	.title-line {
+		display: block;
+		animation: fade-up 0.8s ease-out backwards;
+	}
+
+	.title-line-1 { animation-delay: 0.1s; }
+	.title-line-2 { animation-delay: 0.2s; }
+	.title-line-3 { animation-delay: 0.3s; }
+
+	@keyframes fade-up {
+		from {
+			opacity: 0;
+			transform: translateY(30px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.highlight {
+		color: var(--color-neon-cyan);
+		text-shadow: var(--glow-cyan);
+		position: relative;
+	}
+
+	.highlight-alt {
+		color: var(--color-neon-magenta);
+		text-shadow: var(--glow-magenta);
+		position: relative;
+		display: inline-block;
+	}
+
+	.highlight-alt::after {
+		content: 'AI';
+		position: absolute;
+		left: 2px;
+		top: 2px;
+		color: var(--color-neon-cyan);
+		opacity: 0.5;
+		z-index: -1;
+		animation: glitch 3s ease-in-out infinite;
+	}
+
+	@keyframes glitch {
+		0%, 90%, 100% {
+			transform: translate(0);
+			opacity: 0;
+		}
+		92% {
+			transform: translate(-3px, 2px);
+			opacity: 0.8;
+		}
+		94% {
+			transform: translate(3px, -2px);
+			opacity: 0.6;
+		}
+		96% {
+			transform: translate(-2px, 1px);
+			opacity: 0.4;
+		}
+	}
+
+	/* Description */
+	.hero-description {
+		font-size: 1.2rem;
+		color: var(--color-text-secondary);
+		max-width: 700px;
+		margin: 0 auto 3rem;
+		line-height: 1.7;
+		animation: fade-up 0.8s ease-out 0.4s backwards;
+	}
+
+	.domain-tag {
+		color: var(--color-neon-lime);
+		font-weight: 600;
+	}
+
+	/* Actions */
+	.hero-actions {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin-bottom: 4rem;
+		animation: fade-up 0.8s ease-out 0.5s backwards;
+	}
+
+	.cta-primary {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem 2.5rem;
+		background: var(--color-neon-cyan);
+		color: var(--color-void);
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 1.1rem;
+		text-decoration: none;
+		border-radius: 100px;
+		overflow: hidden;
+		transition: all 0.3s ease;
+		box-shadow: var(--glow-cyan);
+	}
+
+	.cta-primary:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 0 50px rgba(0, 255, 240, 0.6), 0 0 100px rgba(0, 255, 240, 0.3);
+	}
+
+	.cta-glow {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+		transform: translateX(-100%);
+	}
+
+	.cta-primary:hover .cta-glow {
+		animation: shine 0.6s ease;
+	}
+
+	@keyframes shine {
+		to {
+			transform: translateX(100%);
+		}
+	}
+
+	.cta-secondary {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 1rem 2rem;
+		background: transparent;
+		color: var(--color-text-primary);
+		font-family: var(--font-display);
+		font-weight: 500;
+		font-size: 1.1rem;
+		text-decoration: none;
+		border: 1px solid var(--color-border);
+		border-radius: 100px;
+		transition: all 0.3s ease;
+	}
+
+	.cta-secondary:hover {
+		border-color: var(--color-neon-cyan);
+		background: rgba(0, 255, 240, 0.05);
+	}
+
+	.cta-secondary svg {
+		animation: bounce-down 2s ease-in-out infinite;
+	}
+
+	@keyframes bounce-down {
+		0%, 100% { transform: translateY(0); }
+		50% { transform: translateY(4px); }
+	}
+
+	/* Stats */
+	.hero-stats {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 2rem;
+		animation: fade-up 0.8s ease-out 0.6s backwards;
+	}
+
+	.stat {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.25rem;
+	}
+
+	.stat-value {
+		font-family: var(--font-display);
+		font-size: 1.75rem;
+		font-weight: 700;
+		color: var(--color-text-primary);
+	}
+
+	.stat-label {
+		font-size: 0.85rem;
+		color: var(--color-text-muted);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.stat-divider {
+		width: 1px;
+		height: 40px;
+		background: var(--color-border);
+	}
+
+	/* Scroll indicator */
+	.scroll-indicator {
+		position: absolute;
+		bottom: 2rem;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 24px;
+		height: 40px;
+		border: 2px solid var(--color-border);
+		border-radius: 12px;
+		display: flex;
+		justify-content: center;
+		padding-top: 8px;
+		animation: fade-up 0.8s ease-out 0.7s backwards;
+	}
+
+	.scroll-line {
+		width: 2px;
+		height: 8px;
+		background: var(--color-neon-cyan);
+		border-radius: 1px;
+		animation: scroll-bounce 2s ease-in-out infinite;
+	}
+
+	@keyframes scroll-bounce {
+		0%, 100% {
+			transform: translateY(0);
+			opacity: 1;
+		}
+		50% {
+			transform: translateY(8px);
+			opacity: 0.3;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.hero {
+			padding: 6rem 1.5rem 3rem;
+		}
+
+		.hero-description {
+			font-size: 1rem;
+		}
+
+		.hero-stats {
+			gap: 1rem;
+		}
+
+		.stat-value {
+			font-size: 1.5rem;
+		}
+
+		.cta-primary,
+		.cta-secondary {
+			padding: 0.875rem 1.75rem;
+			font-size: 1rem;
+		}
+	}
+</style>

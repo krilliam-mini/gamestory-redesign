@@ -1,0 +1,416 @@
+---
+const capabilities = [
+	"Custom AI Development",
+	"Machine Learning Models",
+	"Natural Language Processing",
+	"Computer Vision Solutions",
+	"Reinforcement Learning",
+	"Scalable Infrastructure"
+];
+---
+
+<section id="about" class="about">
+	<div class="about-container">
+		<!-- Background elements -->
+		<div class="about-bg-pattern"></div>
+
+		<div class="about-grid">
+			<!-- Left: Visual element -->
+			<div class="about-visual">
+				<div class="visual-frame">
+					<!-- Animated cube -->
+					<div class="cube-container">
+						<div class="cube">
+							<div class="cube-face cube-front">AI</div>
+							<div class="cube-face cube-back">ML</div>
+							<div class="cube-face cube-right">DL</div>
+							<div class="cube-face cube-left">NLP</div>
+							<div class="cube-face cube-top">CV</div>
+							<div class="cube-face cube-bottom">RL</div>
+						</div>
+					</div>
+
+					<!-- Orbital rings -->
+					<div class="orbital orbital-1"></div>
+					<div class="orbital orbital-2"></div>
+					<div class="orbital orbital-3"></div>
+				</div>
+
+				<!-- Floating particles -->
+				<div class="particles">
+					<span class="particle"></span>
+					<span class="particle"></span>
+					<span class="particle"></span>
+					<span class="particle"></span>
+					<span class="particle"></span>
+				</div>
+			</div>
+
+			<!-- Right: Content -->
+			<div class="about-content">
+				<span class="section-tag">About Us</span>
+
+				<h2 class="about-title">
+					Our USP is
+					<span class="highlight-text">All Things AI</span>
+				</h2>
+
+				<p class="about-description">
+					GameStory builds intelligent, creative, and scalable AI solutions across potentially any field.
+					We don't just apply AI — we craft bespoke solutions that push the boundaries of what's possible.
+				</p>
+
+				<p class="about-description">
+					Our vision is to continuously expand into new domains as we gain sufficient exposure and expertise.
+					Every challenge is an opportunity to innovate.
+				</p>
+
+				<!-- Capabilities -->
+				<div class="capabilities">
+					<h4 class="capabilities-title">Our Capabilities</h4>
+					<div class="capabilities-grid">
+						{capabilities.map((capability, index) => (
+							<div class="capability" style={`--index: ${index}`}>
+								<span class="capability-dot"></span>
+								<span>{capability}</span>
+							</div>
+						))}
+					</div>
+				</div>
+
+				<!-- CTA -->
+				<a href="/contact" class="about-cta">
+					<span>Start a Conversation</span>
+					<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+						<path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.about {
+		position: relative;
+		padding: 8rem 2rem;
+		overflow: hidden;
+	}
+
+	.about-bg-pattern {
+		position: absolute;
+		inset: 0;
+		background-image:
+			radial-gradient(circle at 20% 50%, rgba(255, 0, 170, 0.08) 0%, transparent 50%),
+			radial-gradient(circle at 80% 50%, rgba(0, 255, 240, 0.08) 0%, transparent 50%);
+		pointer-events: none;
+	}
+
+	.about-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	.about-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 6rem;
+		align-items: center;
+	}
+
+	/* Visual side */
+	.about-visual {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 500px;
+	}
+
+	.visual-frame {
+		position: relative;
+		width: 300px;
+		height: 300px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	/* 3D Cube */
+	.cube-container {
+		width: 120px;
+		height: 120px;
+		perspective: 600px;
+	}
+
+	.cube {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		transform-style: preserve-3d;
+		animation: cube-rotate 20s linear infinite;
+	}
+
+	@keyframes cube-rotate {
+		from {
+			transform: rotateX(0deg) rotateY(0deg);
+		}
+		to {
+			transform: rotateX(360deg) rotateY(360deg);
+		}
+	}
+
+	.cube-face {
+		position: absolute;
+		width: 120px;
+		height: 120px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: var(--font-display);
+		font-size: 1.75rem;
+		font-weight: 700;
+		background: rgba(10, 10, 15, 0.9);
+		border: 1px solid var(--color-border);
+		backdrop-filter: blur(10px);
+	}
+
+	.cube-front { transform: translateZ(60px); color: var(--color-neon-cyan); }
+	.cube-back { transform: rotateY(180deg) translateZ(60px); color: var(--color-neon-magenta); }
+	.cube-right { transform: rotateY(90deg) translateZ(60px); color: var(--color-neon-lime); }
+	.cube-left { transform: rotateY(-90deg) translateZ(60px); color: var(--color-neon-orange); }
+	.cube-top { transform: rotateX(90deg) translateZ(60px); color: var(--color-neon-cyan); }
+	.cube-bottom { transform: rotateX(-90deg) translateZ(60px); color: var(--color-neon-magenta); }
+
+	/* Orbital rings */
+	.orbital {
+		position: absolute;
+		border: 1px solid var(--color-border);
+		border-radius: 50%;
+		animation: orbital-spin linear infinite;
+	}
+
+	.orbital-1 {
+		width: 200px;
+		height: 200px;
+		animation-duration: 15s;
+		border-color: rgba(0, 255, 240, 0.3);
+	}
+
+	.orbital-2 {
+		width: 260px;
+		height: 260px;
+		animation-duration: 20s;
+		animation-direction: reverse;
+		border-color: rgba(255, 0, 170, 0.2);
+	}
+
+	.orbital-3 {
+		width: 320px;
+		height: 320px;
+		animation-duration: 25s;
+		border-color: rgba(200, 255, 0, 0.15);
+	}
+
+	@keyframes orbital-spin {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+
+	/* Particles */
+	.particles {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+	}
+
+	.particle {
+		position: absolute;
+		width: 4px;
+		height: 4px;
+		background: var(--color-neon-cyan);
+		border-radius: 50%;
+		box-shadow: 0 0 10px var(--color-neon-cyan);
+		animation: particle-float 8s ease-in-out infinite;
+	}
+
+	.particle:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+	.particle:nth-child(2) { top: 80%; left: 15%; animation-delay: -2s; background: var(--color-neon-magenta); box-shadow: 0 0 10px var(--color-neon-magenta); }
+	.particle:nth-child(3) { top: 30%; right: 10%; animation-delay: -4s; background: var(--color-neon-lime); box-shadow: 0 0 10px var(--color-neon-lime); }
+	.particle:nth-child(4) { bottom: 20%; right: 20%; animation-delay: -6s; }
+	.particle:nth-child(5) { top: 50%; left: 5%; animation-delay: -1s; background: var(--color-neon-orange); box-shadow: 0 0 10px var(--color-neon-orange); }
+
+	@keyframes particle-float {
+		0%, 100% {
+			transform: translateY(0) scale(1);
+			opacity: 0.6;
+		}
+		50% {
+			transform: translateY(-20px) scale(1.2);
+			opacity: 1;
+		}
+	}
+
+	/* Content side */
+	.about-content {
+		position: relative;
+	}
+
+	.section-tag {
+		display: inline-block;
+		padding: 0.5rem 1rem;
+		background: rgba(255, 0, 170, 0.1);
+		border: 1px solid rgba(255, 0, 170, 0.2);
+		border-radius: 100px;
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: var(--color-neon-magenta);
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		margin-bottom: 1.5rem;
+	}
+
+	.about-title {
+		font-family: var(--font-display);
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 700;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+		margin-bottom: 1.5rem;
+	}
+
+	.highlight-text {
+		color: var(--color-neon-cyan);
+		text-shadow: var(--glow-cyan);
+	}
+
+	.about-description {
+		font-size: 1.1rem;
+		color: var(--color-text-secondary);
+		line-height: 1.8;
+		margin-bottom: 1.25rem;
+	}
+
+	/* Capabilities */
+	.capabilities {
+		margin: 2.5rem 0;
+		padding: 2rem;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: 16px;
+	}
+
+	.capabilities-title {
+		font-family: var(--font-display);
+		font-size: 0.9rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--color-text-muted);
+		margin-bottom: 1.25rem;
+	}
+
+	.capabilities-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 0.75rem;
+	}
+
+	.capability {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		font-size: 0.95rem;
+		color: var(--color-text-secondary);
+		animation: capability-fade 0.5s ease-out calc(var(--index) * 0.1s) backwards;
+	}
+
+	@keyframes capability-fade {
+		from {
+			opacity: 0;
+			transform: translateX(-10px);
+		}
+		to {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	.capability-dot {
+		width: 6px;
+		height: 6px;
+		background: var(--color-neon-lime);
+		border-radius: 50%;
+		box-shadow: 0 0 8px var(--color-neon-lime);
+	}
+
+	/* CTA */
+	.about-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 1rem 2rem;
+		background: transparent;
+		border: 2px solid var(--color-neon-magenta);
+		border-radius: 100px;
+		color: var(--color-neon-magenta);
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 1rem;
+		text-decoration: none;
+		transition: all 0.3s ease;
+	}
+
+	.about-cta:hover {
+		background: var(--color-neon-magenta);
+		color: var(--color-void);
+		box-shadow: var(--glow-magenta);
+	}
+
+	.about-cta svg {
+		transition: transform 0.3s ease;
+	}
+
+	.about-cta:hover svg {
+		transform: translateX(4px);
+	}
+
+	@media (max-width: 968px) {
+		.about-grid {
+			grid-template-columns: 1fr;
+			gap: 4rem;
+		}
+
+		.about-visual {
+			order: -1;
+			min-height: 350px;
+		}
+
+		.visual-frame {
+			transform: scale(0.85);
+		}
+
+		.capabilities-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.about {
+			padding: 5rem 1.5rem;
+		}
+
+		.about-visual {
+			min-height: 300px;
+		}
+
+		.visual-frame {
+			transform: scale(0.7);
+		}
+	}
+</style>
